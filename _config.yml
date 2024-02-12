@@ -16,7 +16,7 @@ timezone: Asia/Seoul
 
 title: Moon-akdong # the main title
 
-tagline: moon-akdong 기술 블로그 # it will display as the sub-title
+tagline: 기술블로그  # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed # 구글 키워드
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
@@ -28,13 +28,10 @@ url: "https://moon-akdong.github.io/"
 github:
   username: moon-akdong # change to your github username
 
-twitter:
-  username: twitter_username # change to your twitter username
-
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: your_full_name
+  name: jaeyun-Moon
   email: example@domain.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
@@ -76,7 +73,7 @@ theme_mode: # [light | dark]
 img_cdn: "https://chirpy-img.netlify.app"
 
 # the avatar on sidebar, support local or CORS resources
-avatar: "/assets/img/title_img.jpeg"
+avatar: "/assets/img/title_img.png"
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
