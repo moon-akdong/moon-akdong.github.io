@@ -1,11 +1,10 @@
 ---
-title: Writing a New Post
+title: 파이썬 코딩의 기술 1장 
 author: cotes
 date: 2019-08-08 14:10:00 +0800
-categories: [Blogging, Tutorial]
-tags: [writing]
+categories: [python, python-coding-skill]
+tags: [python-coding-skill]
 render_with_liquid: false
-
 ---
 # 파이썬 답게 생각하기 
 # 사용중인 파이썬의 버전을 알아두자 
@@ -35,7 +34,7 @@ if not a is b # 말고
 if a is not b # 처럼 사용 
 ```
 
-- 빈 컨테이너나 시퀀스를 검사([],") 할때는 False로 취급된다는 사실을 이용해 if not '컨테이너'라는 조건문을 써라. 
+- 빈 컨테이너나 시퀀스를 검사([],") 할때는 False로 취급된다 이를 이용해 if not '컨테이너'라는 조건문을 쓰자.
 - 길이로 판단하지 말고 존재 한다면, True를 취급된다는 사실을 이용해라. 
 - 식을 한 줄 안에 다 쓸 수 없는 경우, 식을 괄호로 둘러싸고 줄바꿈과 들여 쓰기를 추가해서 읽기 쉽게 만들어라. 
 - 여러줄에 걸쳐 식을 쓸 때는 줄이 계속된다는 표시를 하는 \ 문자보다는 괄호를 사용하라. 
