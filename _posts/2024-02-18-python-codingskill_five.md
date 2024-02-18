@@ -1,7 +1,7 @@
 ---
-title: 파이썬 클래스 
+title: 파이썬 클래스
 author: moon-akdong
-date: 2024-02-18 15:10:00 +0800
+date: 2024-02-18 14:10:00 +0800
 categories: [python, python-coding-skill]
 tags: [python-coding-skill]
 render_with_liquid: false
