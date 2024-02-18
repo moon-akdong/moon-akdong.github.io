@@ -1,11 +1,12 @@
 ---
-title: 파이썬 코딩의 기술 1장 
-author: cotes
-date: 2019-08-08 14:10:00 +0800
+title: 파이썬 코딩의 기술 1장
+author: moon-akdong
+date: 2024-02-12 14:10:00 +0800
 categories: [python, python-coding-skill]
 tags: [python-coding-skill]
 render_with_liquid: false
 ---
+
 # 파이썬 답게 생각하기 
 # 사용중인 파이썬의 버전을 알아두자 
 ```
