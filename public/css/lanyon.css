@@ -656,3 +656,13 @@ a.pagination-item:hover {
   color: #268bd2;
   text-decoration: underline;
 }
+
+
+/*
+ * Post content headings
+ */
+
+.post h1 {
+  padding-bottom: .3rem;
+  border-bottom: 1px solid #eee;
+}
