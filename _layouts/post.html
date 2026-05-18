@@ -5,6 +5,7 @@ layout: default
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
   <span class="post-date">{{ page.date | date_to_string }}</span>
+  <div id="toc"></div>
   {{ content }}
 </div>
 
@@ -33,3 +34,77 @@ layout: default
   </ul>
 </div>
 {% endif %}
+
+<script>
+(function() {
+  var post = document.querySelector('.post');
+  var toc = document.getElementById('toc');
+  if (!post || !toc) return;
+
+  var headings = post.querySelectorAll('h1, h2, h3');
+  // Exclude the post title (first h1 with class post-title)
+  headings = Array.prototype.filter.call(headings, function(h) {
+    return !h.classList.contains('post-title');
+  });
+
+  if (headings.length === 0) {
+    toc.style.display = 'none';
+    return;
+  }
+
+  // Assign ids to headings that lack them
+  var idCount = {};
+  headings.forEach(function(h) {
+    if (!h.id) {
+      var base = h.textContent.trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9가-힣ㄱ-ㅎㅏ-ㅣ]+/g, '-')
+        .replace(/(^-|-$)/g, '');
+      if (!base) base = 'section';
+      if (idCount[base] === undefined) {
+        idCount[base] = 0;
+        h.id = base;
+      } else {
+        idCount[base]++;
+        h.id = base + '-' + idCount[base];
+      }
+    }
+  });
+
+  // Build nested list
+  var html = '<ul>';
+  var prevLevel = 0;
+
+  headings.forEach(function(h) {
+    var level = parseInt(h.tagName.charAt(1), 10); // 1, 2, or 3
+    if (prevLevel === 0) {
+      prevLevel = level;
+    }
+
+    if (level > prevLevel) {
+      for (var i = 0; i < level - prevLevel; i++) {
+        html += '<ul>';
+      }
+    } else if (level < prevLevel) {
+      for (var i = 0; i < prevLevel - level; i++) {
+        html += '</li></ul>';
+      }
+      html += '</li>';
+    } else if (prevLevel !== 0) {
+      html += '</li>';
+    }
+
+    html += '<li><a href="#' + h.id + '">' + h.textContent.trim() + '</a>';
+    prevLevel = level;
+  });
+
+  // Close remaining open tags
+  var firstLevel = parseInt(headings[0].tagName.charAt(1), 10);
+  for (var i = prevLevel; i > firstLevel; i--) {
+    html += '</li></ul>';
+  }
+  html += '</li></ul>';
+
+  toc.innerHTML = html;
+})();
+</script>
