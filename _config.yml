@@ -1,8 +1,8 @@
 # Setup
-title: MoonAkdong's
+title: Moon-Akdong's
 tagline: "Blog"
-description: "개발하면서 배운 것들을 기록하고 공유하는 블로그"
-url: http://lanyon.getpoole.com
+description: "개발하고, 살고, 가끔 씁니다."
+url: https://moon-akdong.github.io
 baseurl: ""
 paginate: 5
 permalink: pretty
@@ -10,7 +10,7 @@ permalink: pretty
 # About/contact
 author:
   name: Moon Jaeyun
-  url: https://github.com/moonjaeyun
+  url: https://github.com/moon-akdong
   email:
 
 # Gems
