@@ -1,7 +1,7 @@
 # Setup
 title: MoonAkdong's
 tagline: "Blog"
-description: 'A reserved <a href="https://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+description: "개발하면서 배운 것들을 기록하고 공유하는 블로그"
 url: http://lanyon.getpoole.com
 baseurl: ""
 paginate: 5
