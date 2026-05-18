@@ -614,3 +614,45 @@ a.pagination-item:hover {
   color: #268bd2;
   text-decoration: none;
 }
+
+
+/*
+ * Table of Contents
+ */
+
+#toc {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+#toc::before {
+  content: "목차";
+  display: block;
+  font-weight: 700;
+  font-size: .95rem;
+  margin-bottom: .5rem;
+  color: #313131;
+}
+#toc ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+#toc ul ul {
+  padding-left: 1.25rem;
+}
+#toc li {
+  margin: .25rem 0;
+  line-height: 1.5;
+}
+#toc a {
+  color: #515151;
+  text-decoration: none;
+  font-size: .85rem;
+}
+#toc a:hover {
+  color: #268bd2;
+  text-decoration: underline;
+}
