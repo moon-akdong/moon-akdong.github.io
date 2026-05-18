@@ -9,8 +9,16 @@ layout: default
 </div>
 
 {% if site.related_posts.size >= 1 %}
+<div class="author-box">
+  <div class="author-info">
+    <h3 class="author-name">{{ site.title }}</h3>
+    <p class="author-desc">{{ site.description }}</p>
+  </div>
+  <img src="/assets/img/me.jpg" class="author-img" alt="{{ site.author.name }}">
+</div>
+
 <div class="related">
-  <h2>Related posts</h2>
+  <h3>Related posts</h3>
   <ul class="related-posts">
     {% for post in site.related_posts limit:3 %}
       <li>
