@@ -1,7 +1,7 @@
 ---
-layout: programming
+layout: post
 title: "2. Git Commit Message 작성법"
-categories: git
+categories: programming
 tags: git
 ---
 
