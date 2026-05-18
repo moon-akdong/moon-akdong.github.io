@@ -9,6 +9,7 @@ title: Programming
 # {{ year.name }}
 
 {% for post in year.items %}
-- [{{ post.title }}]({{ post.url | absolute_url }}) <small style="color: #949494; font-size: 0.8em;">{{ post.date | date: "%m-%d" }}</small>
-{% endfor %}
-{% endfor %}
+
+- [{{ post.title }}]({{ post.url | absolute_url }}) <small style="color: #949494; font-size: 0.8em;">{{ post.date | date: "%m.%d" }}</small>
+  {% endfor %}
+  {% endfor %}
