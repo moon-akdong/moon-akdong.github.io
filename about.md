@@ -15,8 +15,14 @@ title: About
 - 새롭게 학습한 기술에 대한 정리
 - 프로젝트 경험과 회고
 
-### Contact
-
-- GitHub: [moonjaeyun](https://github.com/moonjaeyun)
-
-읽어주셔서 감사합니다.
+<div class="social-links">
+  <a href="https://github.com/moon-akdong" target="_blank" title="GitHub">
+    <i class="fa-brands fa-github"></i>
+  </a>
+  <a href="mailto:problemy0913@gmail.com" title="Email">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+  <a href="https://recody.site" title="Recody">
+  <i class="fa-solid fa-globe"></i>
+  </a>
+</div>

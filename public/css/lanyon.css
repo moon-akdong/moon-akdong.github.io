@@ -595,3 +595,22 @@ a.pagination-item:hover {
   object-fit: cover;
   margin-left: 1.5rem;
 }
+
+
+/*
+ * Social links
+ */
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+.social-links a {
+  font-size: 1.5rem;
+  color: #515151;
+  transition: color .2s;
+}
+.social-links a:hover {
+  color: #268bd2;
+  text-decoration: none;
+}
