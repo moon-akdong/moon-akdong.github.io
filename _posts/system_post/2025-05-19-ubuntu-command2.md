@@ -19,11 +19,11 @@ tags: Ubuntu
 - 설치된 ubuntu 패키지 업그레이드(**함부로 사용 X**)
   - `sudo apt-get upgrade`
 - 패키지 설치
-- `sudo apt-get install 패키지명`
+  - `sudo apt-get install 패키지명`
 - 패키지 삭제
-- `sudo apt-get remove 패키지명`
+  - `sudo apt-get remove 패키지명`
 - 패키지 삭제 설정파일 포함
-- `sudo apt-get --purge remove 패키지명`
+  - `sudo apt-get --purge remove 패키지명`
 
 # 디스크
 
@@ -31,13 +31,13 @@ tags: Ubuntu
 
 ```
  # 전체 디스크 용량
-  `df -h`
+  df -h
 
   # 현재 폴더 용량
-  `du -sh ~/Documents/food_data/`
+  du -sh ~/Documents/food_data/
 
   # 폴더 안 파일별 용량
-  `du -sh ~/Documents/food_data/*`
+  du -sh ~/Documents/food_data/*
 ```
 
 # 포트
