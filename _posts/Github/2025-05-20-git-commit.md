@@ -213,9 +213,102 @@ git checkout -b [new branch name]
 
 단, 여러사람과 작업 중이라면 로컬에서 자신의 작업에서만 적용해야 한다. 히스토리가 변경 되기 때문에 협업 시에 매우 위험하다.
 
+## 이전 커밋명 변경
+
 ```
 git rebase -i [변경하고자 하는 commit 의 바로 이전 commit]
+```
+
+`git rebase -i 36f29e3 ` 이런식으로 명령어를 실행하면 그 이후 작성 되었던 commit이 아래와 같이 나온다.
+vi 모드로 켜지면, pick을 지우고 `r`을 입력하고 저장한다.
+
+```
+pick 4af859a # remove: 원작자 README.md
+pick f9f50ce # Remove post content from home page, show titles only
+pick 43464e9 # python_codingskill chapter1
+pick 81f9efd # Add: gitignore
+```
 
 ```
 
+# 수정
+r 4af859a # remove: 원작자 README.md
+pick f9f50ce # Remove post content from home page, show titles only
+pick 43464e9 # python_codingskill chapter1
+pick 81f9efd # Add: gitignore
+```
+
+저장을 완료하면, r을 입력한 commit message의 vi가 뜬다.  
+vi 화면에서 수정을 하고 저장하면, 커밋명이 변경 된다.
+
+## 이전 커밋 삭제
+
+```
+git rebase -i [변경하고자 하는 commit 의 바로 이전 commit]
+```
+
+동일하게, 위 명령어를 실행하면 아래와 같이 뜨는데, 커밋명을 바꿀때와는 다르게 `d`를 입력하면 된다.
+
+```
+pick 2ffac54 # remove: 원작자 README.md
+pick 830d3f6 # Remove post content from home page, show titles only
+pick 529fe20 # python_codingskill chapter1
+pick 9703f89 # Add: gitignore
+pick 5a53ba9 # git commit post add
+```
+
+```
+# 특정 커밋 삭제
+d 2ffac54 # remove: 원작자 README.md
+pick 830d3f6 # Remove post content from home page, show titles only
+pick 529fe20 # python_codingskill chapter1
+pick 9703f89 # Add: gitignore
+pick 5a53ba9 # git commit post add
+```
+
+저장을 하면 해당 커밋은 삭제 된다.
+
+## 이전 커밋 병합
+
+```
+git rebase -i [변경하고자 하는 commit 의 바로 이전 commit]
+```
+
+이번엔 두 가지 commit 을 합치려고 하는데,
+pick 대신 `s`를 입력해야 하는데, 합치려고 하는 commit 중 최신 커밋에 `s`를 넣어주면 된다.
+
+커밋 명을 변경하는 것 처럼 vi가 나오는데, 여기서 두 commit을 병합 후 commit message를 넣어주면 된다.
+
+## 이전 커밋 나누기
+
+```
+git rebase -i [변경하고자 하는 commit 의 바로 이전 commit]
+```
+
+나누기 위한 commit 에 `e`를 눌러주면 된다.
+
+이렇게 되면 임시 브랜치로 이동해 간다.  
+이 후 `git reset HEAD~`명령어를 사용해서 현재 커밋(수정하고자 하는)보다 이전 커밋으로 돌아간다.
+
+이렇게 되면 이전 커밋(수정하고자 하는)의 내용은 Working Directory에 들어가 있다.
+Working Directory에 들어가 있는 내용을 따로따로 commit 을 진행 하면 된다.
+
+## 주의점
+
+사실 자세히 보면 commit hash가 계속 변경된다.
+`git rebase -i`인 이유는 사실 새로운 과거가 생겼기 때문에, 현실이 바뀐것이나 다름 없기 때문에
+commit 의 해쉬값은 변경이 되는 것이다. 그런 의미에서 `git rebase`명령어가 사용이 되는 것이다.
+
 # git reset 되돌리기 (reflog)
+
+`git reflog`: 프로젝트가 위치한 commit 이 바뀔 때마다 기록되는 내역을 보여준다.  
+로컬에서 진행한 Git 작업의 내역들이 나와 있음을 볼수 있다. (checkout, reset, commit 등의 모든 기록, HEAD가 이동한 기록)
+
+git reset은 항상 조심히 사용해야 한다. 협업에서도 위험하고, 커밋자체가 없어질 수 있기 때문이다.  
+하지만, 유일하게 복구 할 수 있는 명령어가 `git reflog`이다.
+
+1. git reset --hard HEAD~5 : 다섯개의 커밋이 사라짐
+2. git log 를 해보면 삭제된 것이 적용된 commit 이력이 남아 있다.
+3. git reflog를 해보면 reset한 기록이 추가된다. `reset: moving to HEAD~5`
+4. `reset: moving to HEAD~5`의 이전 hash값을 복사한다.
+5. 복사한 이전 hash값을 `git reset --hard [복사한 이전 해시]` 이렇게 해주면 사라졌던 commit 5개가 복구 된다.
