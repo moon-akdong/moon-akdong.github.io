@@ -45,9 +45,12 @@ branch 이미 있는지 또는 몇개가 있는지 확인하는 명령어도 있
 
 ```
 git branch
+
+git branch -a # git branch --all
 ```
 
 위 명령어를 사용하면, 로컬에 있는 branch를 조회 할 수 있다.
+`-a` or `--all`: 연결된 원격의 branch 까지 함께 조회
 
 ## Branch 삭제
 
