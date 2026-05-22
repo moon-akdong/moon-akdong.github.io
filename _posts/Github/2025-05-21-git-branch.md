@@ -185,6 +185,56 @@ rebase는 커밋 단위로 하나씩 적용하기 때문에, 커밋마다 충돌
 
 | **구분**  | **merge**        | **rebase**            |
 | --------- | ---------------- | --------------------- |
-| 비교 대상 | branch vs branch | main vs commit        |
-| incoming  | sub-branch 전체  | sub-branch의 커밋 1개 |
+| 비교 대상 | branch vs branch | main vs branch commit |
+| incoming  | sub_branch 전체  | sub_branch의 커밋 1개 |
 | 충돌 횟수 | 1번              | 여러 번               |
+
+# 협업을 위한 브랜치 전략
+
+Branch를 어떻게 사용하는지에 대한 전략에는 아래 세가지가 있다.
+
+1. Git Flow
+2. Github Flow
+3. Trunk-based Development(TBD)
+
+## Git Flow
+
+명확한 branch구조를 가진 전통적인 전략, 예전에는 많이 사용됨
+
+- 릴리즈 주기가 길고 대규모 프로젝트에 적합
+- 안정적인 버전 관리가 가능하나 브랜치 관리가 복잡함
+
+| **브랜치 이름** | **성격** | **주요 역할**                                                    |
+| --------------- | -------- | ---------------------------------------------------------------- |
+| **main**        | 메인     | 제품 출시 버전 관리, 항상 배포 가능한 상태                       |
+| **develop**     | 메인     | 다음 출시 버전을 위한 개발 통합 브랜치                           |
+| **feature**     | 임시     | 개별 기능 구현 (develop에서 생성 후 다시 병합)                   |
+| **release**     | 임시     | 배포 준비 및 버그 수정 (develop에서 생성 후 master/develop 병합) |
+| **hotfix**      | 임시     | 출시 버전(master)에서 발생한 긴급 버그 수정                      |
+
+![git flow](/assets/post/github/gitflow.png)\_
+_출처: [medium.com/@yanminthwin](https://medium.com/@yanminthwin/understanding-github-flow-and-git-flow-957bc6e12220)_
+
+## Github flow
+
+Main branch 하나를 중심으로 운영되는 단순한 구조
+
+- 상시 배포(CD) 체계가 갖춰진 웹 서비스에 최적화
+- Pull Request를 통한 코드 리뷰 및 피드백 중심
+- PR에서 자동화가 연결되어 바로 소프트웨어가 배포 된다.
+
+  ![alt text](/assets/post/github/githubflow.png)
+  _출처: [medium.com/@yanminthwin](https://medium.com/@yanminthwin/understanding-github-flow-and-git-flow-957bc6e12220)_
+
+## Trunk-based Development(TBD)
+
+모든 개발자가 하나의 main branch에 매일 자주 병합
+
+- 코드 병합 시 발생하는 충돌 최소화 및 개발 속도 극대화
+- 높은 수준의 자동화 테스트와 기능 토글(Feature Flag)활용 필수
+
+| **전략명**      | **관리 브랜치 종류**                      | **핵심 가치**         |
+| --------------- | ----------------------------------------- | --------------------- |
+| **Git Flow**    | master, develop, feature, release, hotfix | 엄격한 관리 및 안정성 |
+| **GitHub Flow** | main, topic branches (feature)            | 단순함과 빠른 배포    |
+| **TBD**         | main (Trunk)                              | 지속적 통합과 속도    |
