@@ -133,6 +133,7 @@ Working:    c3 상태
 ## git revert
 
 이전 commit 에서 수정할 것이 있다면, 이 명령어를 사용하면 된다.  
+git revert 는 선택한 커밋의 반대되는 commit 을 추가 한다.  
 commit을 최소 기능 단위로 작성해야 하는 이유다.최소 기능 단위로 commit 을 작성한다면,  
 협업시에도 안정적으로 git revert를 사용하여, 코드 관리하기가 쉽다.
 
@@ -162,9 +163,7 @@ c1 -> c2 -> c3 -> c1.revert
 
 ### git revert 충돌
 
-이후 commit 과 연결된 코드라던지, revert시 현재 코드와 에러가 발생한다 든지, 여러 경우 충돌이 발생할 수 있다.
-
-이런 충돌들을 해결하는 방법이다.
+이후 commit 과 연결된 코드라던지, revert시 현재 코드와 에러가 발생 할 수 있다.
 
 1. 충돌 회피(임시)
 
@@ -187,9 +186,16 @@ git revert --continue
 
 ## checkout
 
-checkout은 위의 두개와 달리 상태를 그대로 가져온다. 즉, 히스토리를 변경하지 ㅇ낳고 단순히 그 시점의 상태를 보거나 이동하는데 사용된다
+checkout은 위의 두개와 달리 상태를 그대로 가져온다. 즉, 히스토리를 변경하지 않고 단순히 그 시점의 상태를 보거나 이동하는데 사용된다.
 
-또한 branch 이동 , 특정 파일만 되돌려서 확인이 가능하다.
+헤당 commit 으로 이동 후 Branch를 만들 수도 있다.
+
+```
+git checkout [커밋해시]       # 해당 시점으로 이동 (detached HEAD)
+  git switch -c new_branch     # 그 시점에서 브랜치 생성
+```
+
+또한 branch 이동 , 특정 파일만 되돌려서 확인이 가능하다.(엣날 기능)
 
 ```
 git checkout [해시값 or branch]
