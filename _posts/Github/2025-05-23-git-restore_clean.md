@@ -32,7 +32,7 @@ Working Directory에 파일은 그대로 존재한다.
 git restore --staged [파일명]
 
 git restore --staged test.txt
-git resotre --staged . # 모든 파일
+git restore --staged . # 모든 파일
 ```
 
 ### 특정 Commit 상태로 되돌리기
